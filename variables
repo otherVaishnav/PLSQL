@@ -1,0 +1,318 @@
+SELECT _____ INTO _____ CLAUSE 
+	Normal sql statement is used to fetch the data from table and we are storing the values into the pl/sql variable .
+	Select ___ into ___ clause always returns single values or records at a time.
+
+     SYNTAX: 
+	SELECT COL1 ,COL2 ….
+ 	INTO VAR1 ,VAR2… 
+	FROM TABLE_NAME 
+	WHERE CONDITION ;
+
+This clause is used in execuatable section of plsql program .
+ 
+EXAMPLE :
+          WRITE A PL/SQL PROGRAM DISPLAY NAME AND SALARY OF THE EMPLOYEES AND GET THE EMPNO FORM THE USER.
+DECLARE 
+     V_NAME VARCHAR(20);
+     V_SAL NUMBER ;
+BEGIN 
+     SELECT ENAME ,SAL INTO V_NAME ,V_SAL 
+     FROM EMP
+     WHERE EMPNO = &EMPNO ;
+      DBMS_OUTPUT.PUT_LINE('MY NAME IS : '||V_NAME || ' AND MY SALARY IS : ' ||V_SAL);
+END;
+/
+     O/P:
+	ENTER VALUE FOR EMPNO: 7902
+	MY NAME IS : FORD AND MY SALARY IS : 3000
+
+NOTES :
+	Whenever we are using not null ,constant clause in variable we must assign the values at the time of declaration only.
+
+EXAMPLE:
+DECLARE 
+   A NUMBER(10) NOT NULL :=60;
+   B CONSTANT NUMBER (10):=50;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE(A);
+   DBMS_OUTPUT.PUT_LINE(B);
+END;
+/
+NOTES :
+We can also use default keyword in place a assignment operator , in declare  section of the pl/sql.
+EXAMPLE:
+DECLARE 
+   A NUMBER(10) DEFAULT 60;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE(A);
+END;
+/
+
+
+1)	WAQTD MAXIMUM SALARY OF THE EMPLOYEE 
+DECLARE 
+   V_MAX NUMBER(5) ;
+BEGIN 
+   SELECT MAX(SAL) INTO V_MAX 
+   FROM EMP;
+      DBMS_OUTPUT.PUT_LINE(V_MAX);
+ END ;
+/ 
+2)	WAQTD THE BIGGEST DIGIT AMONG THIS  NUMBER 20,30,10 
+  
+DECLARE 
+    A NUMBER(2) ;
+    B NUMBER(2) ;
+    C NUMBER(2) ;
+    D NUMBER(2);
+BEGIN 
+     A := 20;
+     B := 30;
+     C := 10;
+     D := GREATEST(A,B,C);
+     DBMS_OUTPUT.PUT_LINE(D);
+END ;
+/
+
+3)	WAQTD THE SMALLEST DIGIT AMONG THIS  NUMBER 20,30,10 
+
+DECLARE 
+    A NUMBER(2) ;
+    B NUMBER(2) ;
+    C NUMBER(2) ;
+    D NUMBER(2);
+BEGIN 
+     A := 20;
+     B := 30;
+     C := 10;
+     D := LEAST(A,B,C);
+          DBMS_OUTPUT.PUT_LINE(D);
+END ;
+/
+
+VARIABLE ATTRIBUTES 
+----------------------
+  
+	Variable attributes are used in place of datatypes in variable declaration or procedure parameter declaration in pl/sql block.
+	There are two types of variable attributes supported by pl/sql .
+1)COLUMN LEVEL ATTRIBUTES
+2)ROW LEVEL ATTRIBUTES 
+
+COLUMN LEVEL ATTRIBUTES
+	In this method we are defining attributes for individual columns 
+	This attribute is represented using %type
+
+SYNTAX:
+   	Variable_Name Table_Name.Column_Name%TYPE;
+
+EXAMPLE:
+DECLARE 
+   V_NAME EMP.ENAME%TYPE ;
+   V_SAL EMP.SAL%TYPE ;
+BEGIN 
+    SELECT ENAME ,SAL INTO V_NAME ,V_SAL 
+    FROM EMP 
+    WHERE EMPNO=&NO ;
+       DBMS_OUTPUT.PUT_LINE(V_NAME || ' ' || V_SAL);
+END ;
+/
+ ROW LEVEL ATTRIBUTES '
+-----------------------
+	In this method a single variable represents all different datatypes in entire row in a table that’s
+	Why this variable is also called as record type variable in this variable is represent using %rowtype.
+ SYNTAX:
+   Variable_Name Table_Name%Rowtype;
+EXAMPLE :
+Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
+DECLARE 
+    I EMP%ROWTYPE ;
+BEGIN 
+   SELECT ENAME,JOB,SAL INTO I.ENAME ,I.JOB,I.SAL
+   FROM EMP 
+   WHERE EMPNO=&NO ;
+     DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
+END ;
+/
+Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
+EXAMPLE :
+DECLARE 
+    I EMP%ROWTYPE ;
+BEGIN 
+    SELECT * INTO I
+    FROM EMP 
+    WHERE EMPNO=&NO ;
+      DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
+END ;
+/
+
+CONDITIONAL STATEMENTS (IF)
+1)	IF 
+2)	IF ELSE 
+3)	ELSIF 
+
+IF CONDITION 
+	SYNTAX:
+	IF CONDITION THEN 
+	     STATEMENTS ;
+	END IF ;
+
+Get the values from the user if the value is less then 10 then display it 'entered value is less than 10 
+  
+ EXAMPLE
+DECLARE 
+   N NUMBER :=&NO ;
+BEGIN 
+   IF  N<10 THEN 
+      DBMS_OUTPUT.PUT_LINE( ' ENTERED LESS THEN : ' || N ) ;
+   END IF ;
+END ;
+/
+  
+IF  ELSE CONDITION 
+  
+	SYNTAX:
+	IF CONDITION THEN 
+	     STATEMENTS ;
+	ELSE 
+	        STATEMENTS ;
+	END IF ;
+
+Get the values from the user if the value is greater then or equal 18 then ‘you are eligible to vote ‘  else  ‘you are not  eligible to vote ‘ display it 
+
+DECLARE
+    DOB DATE := '&DOB' ;
+    AGE NUMBER ;
+BEGIN
+  AGE :=TO_NUMBER(TO_CHAR(SYSDATE,'YY')-TO_CHAR(DOB,'YY'));
+      IF  AGE >= 18 THEN
+        DBMS_OUTPUT.PUT_LINE( 'YOU ARE ELIGIBLE TO VOTE : ' || AGE ) ;
+     ELSE
+        DBMS_OUTPUT.PUT_LINE( 'YOU ARE NOT ELIGIBLE TO VOTE : ' || AGE);
+      END IF ;
+    END ;
+/
+
+ELSIF  : 
+ To check more number of condition we are using elsif;
+SYNTAX:
+	IF CONTITION1 THEN
+	     STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSE 
+	    STATEMENTS ;
+	END IF ;
+	/
+
+
+CONTROL STATEMENTS(LOOP)
+There are three types of loops supported by pl/sql 
+ 	1) SIMPLE LOOP
+ 	2) WHILE  LOOP
+3 ) FOR LOOP 
+
+
+
+1) SIMPLE LOOP
+Here the body of statements is executed repeatedly
+SYNTAX:
+LOOP
+   //STATMENTS
+END LOOP;
+This loop is also called as infinte loop
+
+To exit from infite loop we are using 2 methods
+
+1) EXIT WHEN TRUECONDITION;
+2) IF CONDITION THEN
+   EXIT ;
+   END ;
+
+
+
+
+
+DECLARE
+   V_NUM NUMBER:=&N;
+BEGIN
+   LOOP
+     DBMS_OUTPUT.PUT_LINE(V_NUM);
+       NUM:=NUM+1;
+     EXIT WHEN NUM>10;
+   END LOOP;
+END;
+/
+
+OR
+
+DECLARE
+     V_NUM NUMBER:=1;
+BEGIN
+      LOOP
+         DBMS_OUTPUT.PUT_LINE(NUM);
+            IF (NUM>=10) THEN
+              EXIT;
+            END IF;
+         NUM:=NUM+1;
+       END LOOP;
+   END;
+/
+
+
+2)WHILE LOOP
+Here body of the statements are executed repeatedly until condition get false
+SYNTAX:
+WHILE CONDITION LOOP
+//STATEMENTS
+END LOOP;
+EXAMPLE:
+DECLARE
+  N NUMBER :=1 ;
+BEGIN
+  WHILE N<=10 LOOP
+       DBMS_OUTPUT.PUT_LINE(N);
+      N := N+1;
+  END LOOP;
+END ;
+/
+
+3.FOR LOOP
+In pl/sql, a for loop is a control structure that allows you to iterate over a range of values or a cursor result set
+
+SYNTAX:
+
+For Counter In Lower_Bound..Upper_Bound Loop
+-- Statements To Be Executed In Each Iteration
+End Loop;
+
+
+EXAMPLE:1
+  
+Waqtd First 1 To 10 Number ;
+  
+DECLARE
+    N NUMBER :=1 ;
+BEGIN
+   FOR I IN 1..N LOOP
+     DBMS_OUTPUT.PUT_LINE(N);
+   END LOOP;
+END;
+/
+
+EXAMPLE:2
+
+Give The Sum Of 1 To 5 Numbers :
+  
+DECLARE
+     V_SUM NUMBER := 0;
+BEGIN
+     FOR I IN 1..5 LOOP
+        V_SUM := V_SUM + I;
+     END LOOP;
+    DBMS_OUTPUT.PUT_LINE('THE SUM OF NUMBERS FROM 1 TO 5 IS: ' || V_SUM);
+END;
+/
