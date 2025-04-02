@@ -1,0 +1,55 @@
+VARIABLE ATTRIBUTES 
+----------------------
+  
+	Variable attributes are used in place of datatypes in variable declaration or procedure parameter declaration in pl/sql block.
+	There are two types of variable attributes supported by pl/sql .
+1)COLUMN LEVEL ATTRIBUTES
+2)ROW LEVEL ATTRIBUTES 
+
+COLUMN LEVEL ATTRIBUTES
+	In this method we are defining attributes for individual columns 
+	This attribute is represented using %type
+
+SYNTAX:
+   	Variable_Name Table_Name.Column_Name%TYPE;
+
+EXAMPLE:
+DECLARE 
+   V_NAME EMP.ENAME%TYPE ;
+   V_SAL EMP.SAL%TYPE ;
+BEGIN 
+    SELECT ENAME ,SAL INTO V_NAME ,V_SAL 
+    FROM EMP 
+    WHERE EMPNO=&NO ;
+       DBMS_OUTPUT.PUT_LINE(V_NAME || ' ' || V_SAL);
+END ;
+/
+ ROW LEVEL ATTRIBUTES '
+-----------------------
+	In this method a single variable represents all different datatypes in entire row in a table that’s
+	Why this variable is also called as record type variable in this variable is represent using %rowtype.
+ SYNTAX:
+   Variable_Name Table_Name%Rowtype;
+EXAMPLE :
+Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
+DECLARE 
+    I EMP%ROWTYPE ;
+BEGIN 
+   SELECT ENAME,JOB,SAL INTO I.ENAME ,I.JOB,I.SAL
+   FROM EMP 
+   WHERE EMPNO=&NO ;
+     DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
+END ;
+/
+Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
+EXAMPLE :
+DECLARE 
+    I EMP%ROWTYPE ;
+BEGIN 
+    SELECT * INTO I
+    FROM EMP 
+    WHERE EMPNO=&NO ;
+      DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
+END ;
+/
+
