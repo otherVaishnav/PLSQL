@@ -1,0 +1,107 @@
+CONTROL STATEMENTS(LOOP)
+There are three types of loops supported by pl/sql 
+ 	1) SIMPLE LOOP
+ 	2) WHILE  LOOP
+3 ) FOR LOOP 
+
+
+
+1) SIMPLE LOOP
+Here the body of statements is executed repeatedly
+SYNTAX:
+LOOP
+   //STATMENTS
+END LOOP;
+This loop is also called as infinte loop
+
+To exit from infite loop we are using 2 methods
+
+1) EXIT WHEN TRUECONDITION;
+2) IF CONDITION THEN
+   EXIT ;
+   END ;
+
+
+
+
+
+DECLARE
+   V_NUM NUMBER:=&N;
+BEGIN
+   LOOP
+     DBMS_OUTPUT.PUT_LINE(V_NUM);
+       NUM:=NUM+1;
+     EXIT WHEN NUM>10;
+   END LOOP;
+END;
+/
+
+OR
+
+DECLARE
+     V_NUM NUMBER:=1;
+BEGIN
+      LOOP
+         DBMS_OUTPUT.PUT_LINE(NUM);
+            IF (NUM>=10) THEN
+              EXIT;
+            END IF;
+         NUM:=NUM+1;
+       END LOOP;
+   END;
+/
+
+
+2)WHILE LOOP
+Here body of the statements are executed repeatedly until condition get false
+SYNTAX:
+WHILE CONDITION LOOP
+//STATEMENTS
+END LOOP;
+EXAMPLE:
+DECLARE
+  N NUMBER :=1 ;
+BEGIN
+  WHILE N<=10 LOOP
+       DBMS_OUTPUT.PUT_LINE(N);
+      N := N+1;
+  END LOOP;
+END ;
+/
+
+3.FOR LOOP
+In pl/sql, a for loop is a control structure that allows you to iterate over a range of values or a cursor result set
+
+SYNTAX:
+
+For Counter In Lower_Bound..Upper_Bound Loop
+-- Statements To Be Executed In Each Iteration
+End Loop;
+
+
+EXAMPLE:1
+  
+Waqtd First 1 To 10 Number ;
+  
+DECLARE
+    N NUMBER :=1 ;
+BEGIN
+   FOR I IN 1..N LOOP
+     DBMS_OUTPUT.PUT_LINE(N);
+   END LOOP;
+END;
+/
+
+EXAMPLE:2
+
+Give The Sum Of 1 To 5 Numbers :
+  
+DECLARE
+     V_SUM NUMBER := 0;
+BEGIN
+     FOR I IN 1..5 LOOP
+        V_SUM := V_SUM + I;
+     END LOOP;
+    DBMS_OUTPUT.PUT_LINE('THE SUM OF NUMBERS FROM 1 TO 5 IS: ' || V_SUM);
+END;
+/
