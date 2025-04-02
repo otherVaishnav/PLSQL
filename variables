@@ -90,229 +90,29 @@ BEGIN
 END ;
 /
 
-VARIABLE ATTRIBUTES 
-----------------------
-  
-	Variable attributes are used in place of datatypes in variable declaration or procedure parameter declaration in pl/sql block.
-	There are two types of variable attributes supported by pl/sql .
-1)COLUMN LEVEL ATTRIBUTES
-2)ROW LEVEL ATTRIBUTES 
 
-COLUMN LEVEL ATTRIBUTES
-	In this method we are defining attributes for individual columns 
-	This attribute is represented using %type
+ASSIGNMETS :
 
-SYNTAX:
-   	Variable_Name Table_Name.Column_Name%TYPE;
+1. Write a PL/SQL block to fetch the `ENAME`, `JOB`, and `SAL` for the employee with `EMPNO = 7839`.
 
-EXAMPLE:
-DECLARE 
-   V_NAME EMP.ENAME%TYPE ;
-   V_SAL EMP.SAL%TYPE ;
-BEGIN 
-    SELECT ENAME ,SAL INTO V_NAME ,V_SAL 
-    FROM EMP 
-    WHERE EMPNO=&NO ;
-       DBMS_OUTPUT.PUT_LINE(V_NAME || ' ' || V_SAL);
-END ;
-/
- ROW LEVEL ATTRIBUTES '
------------------------
-	In this method a single variable represents all different datatypes in entire row in a table that’s
-	Why this variable is also called as record type variable in this variable is represent using %rowtype.
- SYNTAX:
-   Variable_Name Table_Name%Rowtype;
-EXAMPLE :
-Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
-DECLARE 
-    I EMP%ROWTYPE ;
-BEGIN 
-   SELECT ENAME,JOB,SAL INTO I.ENAME ,I.JOB,I.SAL
-   FROM EMP 
-   WHERE EMPNO=&NO ;
-     DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
-END ;
-/
-Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
-EXAMPLE :
-DECLARE 
-    I EMP%ROWTYPE ;
-BEGIN 
-    SELECT * INTO I
-    FROM EMP 
-    WHERE EMPNO=&NO ;
-      DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
-END ;
-/
+2. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `DEPTNO` for the employee whose `SAL` is greater than 2000.
 
-CONDITIONAL STATEMENTS (IF)
-1)	IF 
-2)	IF ELSE 
-3)	ELSIF 
+3. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `HIREDATE` for the employee with `EMPNO = 7782`.
 
-IF CONDITION 
-	SYNTAX:
-	IF CONDITION THEN 
-	     STATEMENTS ;
-	END IF ;
+4. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `COMM` for the employee with the highest commission.
 
-Get the values from the user if the value is less then 10 then display it 'entered value is less than 10 
-  
- EXAMPLE
-DECLARE 
-   N NUMBER :=&NO ;
-BEGIN 
-   IF  N<10 THEN 
-      DBMS_OUTPUT.PUT_LINE( ' ENTERED LESS THEN : ' || N ) ;
-   END IF ;
-END ;
-/
-  
-IF  ELSE CONDITION 
-  
-	SYNTAX:
-	IF CONDITION THEN 
-	     STATEMENTS ;
-	ELSE 
-	        STATEMENTS ;
-	END IF ;
+5. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'SALESMAN'.
 
-Get the values from the user if the value is greater then or equal 18 then ‘you are eligible to vote ‘  else  ‘you are not  eligible to vote ‘ display it 
+6. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `SAL` for the employee with the second-highest salary.
 
-DECLARE
-    DOB DATE := '&DOB' ;
-    AGE NUMBER ;
-BEGIN
-  AGE :=TO_NUMBER(TO_CHAR(SYSDATE,'YY')-TO_CHAR(DOB,'YY'));
-      IF  AGE >= 18 THEN
-        DBMS_OUTPUT.PUT_LINE( 'YOU ARE ELIGIBLE TO VOTE : ' || AGE ) ;
-     ELSE
-        DBMS_OUTPUT.PUT_LINE( 'YOU ARE NOT ELIGIBLE TO VOTE : ' || AGE);
-      END IF ;
-    END ;
-/
+7. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `DEPTNO` for the employee who was hired the earliest (`HIREDATE`).
 
-ELSIF  : 
- To check more number of condition we are using elsif;
-SYNTAX:
-	IF CONTITION1 THEN
-	     STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSE 
-	    STATEMENTS ;
-	END IF ;
-	/
+8. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `SAL` for the employee with the highest salary in the department with `DEPTNO = 30`.
+
+9. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `MGR` for the employee with `EMPNO = 7566`.
+
+10. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'MANAGER'.
+
+These questions focus on retrieving and displaying specific columns from the `emp` table.
 
 
-CONTROL STATEMENTS(LOOP)
-There are three types of loops supported by pl/sql 
- 	1) SIMPLE LOOP
- 	2) WHILE  LOOP
-3 ) FOR LOOP 
-
-
-
-1) SIMPLE LOOP
-Here the body of statements is executed repeatedly
-SYNTAX:
-LOOP
-   //STATMENTS
-END LOOP;
-This loop is also called as infinte loop
-
-To exit from infite loop we are using 2 methods
-
-1) EXIT WHEN TRUECONDITION;
-2) IF CONDITION THEN
-   EXIT ;
-   END ;
-
-
-
-
-
-DECLARE
-   V_NUM NUMBER:=&N;
-BEGIN
-   LOOP
-     DBMS_OUTPUT.PUT_LINE(V_NUM);
-       NUM:=NUM+1;
-     EXIT WHEN NUM>10;
-   END LOOP;
-END;
-/
-
-OR
-
-DECLARE
-     V_NUM NUMBER:=1;
-BEGIN
-      LOOP
-         DBMS_OUTPUT.PUT_LINE(NUM);
-            IF (NUM>=10) THEN
-              EXIT;
-            END IF;
-         NUM:=NUM+1;
-       END LOOP;
-   END;
-/
-
-
-2)WHILE LOOP
-Here body of the statements are executed repeatedly until condition get false
-SYNTAX:
-WHILE CONDITION LOOP
-//STATEMENTS
-END LOOP;
-EXAMPLE:
-DECLARE
-  N NUMBER :=1 ;
-BEGIN
-  WHILE N<=10 LOOP
-       DBMS_OUTPUT.PUT_LINE(N);
-      N := N+1;
-  END LOOP;
-END ;
-/
-
-3.FOR LOOP
-In pl/sql, a for loop is a control structure that allows you to iterate over a range of values or a cursor result set
-
-SYNTAX:
-
-For Counter In Lower_Bound..Upper_Bound Loop
--- Statements To Be Executed In Each Iteration
-End Loop;
-
-
-EXAMPLE:1
-  
-Waqtd First 1 To 10 Number ;
-  
-DECLARE
-    N NUMBER :=1 ;
-BEGIN
-   FOR I IN 1..N LOOP
-     DBMS_OUTPUT.PUT_LINE(N);
-   END LOOP;
-END;
-/
-
-EXAMPLE:2
-
-Give The Sum Of 1 To 5 Numbers :
-  
-DECLARE
-     V_SUM NUMBER := 0;
-BEGIN
-     FOR I IN 1..5 LOOP
-        V_SUM := V_SUM + I;
-     END LOOP;
-    DBMS_OUTPUT.PUT_LINE('THE SUM OF NUMBERS FROM 1 TO 5 IS: ' || V_SUM);
-END;
-/
