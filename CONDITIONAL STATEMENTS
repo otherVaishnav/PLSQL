@@ -1,0 +1,65 @@
+CONDITIONAL STATEMENTS (IF)
+1)	IF 
+2)	IF ELSE 
+3)	ELSIF 
+
+IF CONDITION 
+	SYNTAX:
+	IF CONDITION THEN 
+	     STATEMENTS ;
+	END IF ;
+
+Get the values from the user if the value is less then 10 then display it 'entered value is less than 10 
+  
+ EXAMPLE
+DECLARE 
+   N NUMBER :=&NO ;
+BEGIN 
+   IF  N<10 THEN 
+      DBMS_OUTPUT.PUT_LINE( ' ENTERED LESS THEN : ' || N ) ;
+   END IF ;
+END ;
+/
+  
+IF  ELSE CONDITION 
+  
+	SYNTAX:
+	IF CONDITION THEN 
+	     STATEMENTS ;
+	ELSE 
+	        STATEMENTS ;
+	END IF ;
+
+Get the values from the user if the value is greater then or equal 18 then ‘you are eligible to vote ‘  else  ‘you are not  eligible to vote ‘ display it 
+
+DECLARE
+    DOB DATE := '&DOB' ;
+    AGE NUMBER ;
+BEGIN
+  AGE :=TO_NUMBER(TO_CHAR(SYSDATE,'YY')-TO_CHAR(DOB,'YY'));
+      IF  AGE >= 18 THEN
+        DBMS_OUTPUT.PUT_LINE( 'YOU ARE ELIGIBLE TO VOTE : ' || AGE ) ;
+     ELSE
+        DBMS_OUTPUT.PUT_LINE( 'YOU ARE NOT ELIGIBLE TO VOTE : ' || AGE);
+      END IF ;
+    END ;
+/
+
+ELSIF  : 
+--------------
+ To check more number of condition we are using elsif;
+SYNTAX:
+	IF CONTITION1 THEN
+	     STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSE 
+	    STATEMENTS ;
+	END IF ;
+	/
+
+
