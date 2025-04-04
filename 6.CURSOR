@@ -23,6 +23,48 @@ END ;
 O/P :
 
 ENTER VALUE FOR NO: 7369
+
+
+IMPLICIT CURSOR ATTRIBUTES:
+---------------------------
+
+Every Explicit Cursor Having Following Four Attributes:
+
+1) %FOUND
+2) %NOTFOUND
+3) %ISOPEN
+4) %ROWCOUNT
+
+All These Cursor Attributes Using Along With Cursor Name Only.
+
+SYNTAX: 
+        SQL%Attribute_Name 
+
+Here are slightly more detailed, yet concise, definitions for each cursor attribute:
+
+1. %NOTFOUND
+   Returns `TRUE` if the last `FETCH` did not return any rows (i.e., no data). Returns `FALSE` if rows were fetched.
+
+   Syntax: 
+            SQL%NOTFOUND
+
+2. %FOUND  
+   Returns `TRUE` if the last `FETCH` successfully fetched at least one row. Returns `FALSE` if no rows were fetched.
+
+   Syntax:
+            SQL%FOUND
+
+3. %ISOPEN  
+   Returns `TRUE` if the cursor is currently open. Returns `FALSE` if the cursor is closed.
+
+   Syntax: 
+            SQL%ISOPEN
+
+4. %ROWCOUNT 
+   Returns the number of rows fetched so far from the cursor.
+
+   Syntax: 
+            SQL%ROWCOUNT
 OLD   7:   WHERE EMPNO =&NO ;
 NEW   7:   WHERE EMPNO =7369 ;
 SMITH  800
