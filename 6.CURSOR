@@ -10,6 +10,7 @@ Sql Statements Returns A Single Record Is Called Implicit Cursors .
 Implicit Cursor Are Simple Pl/Sql Programs Which Contains Select Into Clause Or Dml Statements
 
 EXAMPLE:
+
 DECLARE
     V_NAME VARCHAR(20) ;
     V_SAL NUMBER(6);
@@ -23,6 +24,10 @@ END ;
 O/P :
 
 ENTER VALUE FOR NO: 7369
+OLD   7:   WHERE EMPNO =&NO ;
+NEW   7:   WHERE EMPNO =7369 ;
+SMITH  800
+
 
 
 IMPLICIT CURSOR ATTRIBUTES:
@@ -65,7 +70,6 @@ Here are slightly more detailed, yet concise, definitions for each cursor attrib
 
    Syntax: 
             SQL%ROWCOUNT
-OLD   7:   WHERE EMPNO =&NO ;
-NEW   7:   WHERE EMPNO =7369 ;
-SMITH  800
+
+
 
