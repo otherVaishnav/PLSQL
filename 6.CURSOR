@@ -1,6 +1,7 @@
 CURSOR 
 Cursor Is A Private Sql Memory Area Which Is Used To Process Multiple Records And Also This Is A Record By Record Process .
 THERE ARE TWO TYPES OF STATIC CURSOR SUPPORTS BY ORACLE
+
 1)	IMPLICIT CURSOR
 2)	EXPLICIT CURSOR
 
@@ -33,7 +34,7 @@ SMITH  800
 IMPLICIT CURSOR ATTRIBUTES:
 ---------------------------
 
-Every Explicit Cursor Having Following Four Attributes:
+Every IMPLICIT Cursor Having Following Four Attributes:
 
 1) %FOUND
 2) %NOTFOUND
@@ -48,19 +49,19 @@ SYNTAX:
 Here are slightly more detailed, yet concise, definitions for each cursor attribute:
 
 1. %NOTFOUND
-   Returns `TRUE` if the last `FETCH` did not return any rows (i.e., no data). Returns `FALSE` if rows were fetched.
+    It Returns `TRUE` if the data is not exists in the  `FETCH` statments.
 
    Syntax: 
             SQL%NOTFOUND
 
 2. %FOUND  
-   Returns `TRUE` if the last `FETCH` successfully fetched at least one row. Returns `FALSE` if no rows were fetched.
+   It Returns `TRUE` if the data is exists in the  `FETCH` statments.
 
    Syntax:
             SQL%FOUND
 
 3. %ISOPEN  
-   Returns `TRUE` if the cursor is currently open. Returns `FALSE` if the cursor is closed.
+  It Returns `TRUE` if the cursor is currently open. Returns `FALSE` if the cursor is closed.
 
    Syntax: 
             SQL%ISOPEN
