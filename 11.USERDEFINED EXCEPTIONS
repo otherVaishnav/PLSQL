@@ -100,3 +100,29 @@ WHEN Z THEN
 RAISE_APPLICATION_ERROR(-20101,'SALARY ALREADY HIGH');
 END;
 /
+
+
+Write a PL/SQL block that declares a user-defined exception called insufficient_balance
+and raises it when a withdrawal amount exceeds the balance
+
+declare 
+ v_withdraw_amt number :=&amt ;
+ v_empno number :=&empno ;
+ v_old_balance number ;
+ z exception ;
+begin  
+ select sal into v_old_balance
+ from emp
+ where empno = v_empno;
+   if v_old_balance <= v_withdraw_amt then
+     raize z ;
+   else 
+     update emp
+     set sal=v_old_balance- v_withdraw_amt 
+     where empno =v_empno;
+      dbms_output.put_line('total balance :'||v_old_balance- v_withdraw_amt);
+  end if;
+exception 
+ when z then 
+   dbms_output.put_line(' transactation faild due to insufficient_balance' :||v_old_balance);
+end ;
