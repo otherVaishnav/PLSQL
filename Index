@@ -1,0 +1,43 @@
+What is an Index
+   - Index is a database object that improves query performance by providing quick access to rows in a table.
+   - It allows faster retrieval of data, especially for large tables.
+   - It works similarly to an index in a book, helping you quickly locate specific rows.
+   - Indexes are automatically created on primary key and unique key columns.
+
+Types of Indexes:
+------------------------------
+   - Single-column Index: Created on one column.
+   - Composite Index : Created on multiple columns.
+   - Unique Index : Ensures values in the indexed column(s) are unique.
+
+
+Advantages of Indexes:
+---------------------------
+   - Faster Query Performance: Speeds up data retrieval, especially for SELECT queries with WHERE clauses.
+   - Efficient Searching: Reduces full table scans for searches
+
+---
+
+Syntax for Creating an Index:
+----------------------------------
+   - Basic Syntax:
+
+     CREATE INDEX index_name
+     ON table_name (column_name);
+
+   -Composite Index (on multiple columns):
+    
+     CREATE INDEX index_name
+     ON table_name (column_name1, column_name2);
+    
+   - Unique Index:
+    
+     CREATE UNIQUE INDEX index_name
+     ON table_name (column_name);
+
+---
+
+Examples of Index Creation:
+---------------------------------
+
+
