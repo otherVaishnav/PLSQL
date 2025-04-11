@@ -1,13 +1,18 @@
 PARAMETRIZED CURSOR :
+
 --> We Can Alse Pass Parameters To The Cursor Same Like A Subprograms In Parameters
 --> These Type Of The Cursor Is Also Called As Parametrized Cursor
+
 SYNTAX:
+
 CURSOR CURSOR_NAME (PARAMETER_NAME DATATYPE) IS SELECT *  FROM TABLE_NAME WHERE COLUMN_NAME = PARAMETER_NAME ;
+
 SYNTAX:
 
 OPEN CURSOR_NAME (ACTUAL PARAMETERS);
 
 EXAMPLE :
+*********
 DECLARE
      I EMP%ROWTYPE ;
      CURSOR C1(P_DEPTNO NUMBER) IS SELECT ENAME,SAL 
@@ -25,7 +30,7 @@ END ;
 
 
 NOTES :
-Whenever We Are Passing Formal Parameter To The Cursor ,Procedure ,Function Then We Cannot Specify Datatype Size In Formal Parameter Declaration .
+Whenever We Are Passing Formal Parameter To The Cursor ,Procedure ,Function , We Cannot Specify Datatype Size In Formal Parameter Declaration .
 
 EXAMPLE:
 Write A Pl/Sql Parameterized Cursor Program To Display Employees Working As Manager Or Analyst From The Emp Table & Also Produce This Report Statically
