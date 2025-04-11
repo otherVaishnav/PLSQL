@@ -84,7 +84,87 @@ DROP FUNCTION FUNCTION_NAME;
 **************************************************
 
 EXAMPLE :
+create or replace function greeting
+return varchar
+is
+begin 
+ return 'good morning ' ;
+end greeting ;
+/
 
+select greeting() from dual ;
+
+SQL> declare
+  2   g varchar(200);
+  3  begin
+  4   g := greeting() ;
+  5   dbms_output.put_line(g);
+  6  end ;
+  7  /
+good morning
+
+
+select greeting()||  ' '||ename
+from emp
+
+
+create or replace function greeting(name varchar)
+return varchar
+is
+begin 
+ return 'good morning :'||name;
+end greeting ;
+/
+
+
+
+select greeting('ananya') from dual ;
+
+select greeting(ename)
+from emp;
+
+
+
+create or replace function get_salary(eid number)
+return number 
+as 
+v_sal number(4);
+begin 
+ select sal into v_sal
+ from emp
+ where empno=eid ;
+  return v_sal ;
+end ;
+/
+
+
+create or replace function sum_values(a int,b int)
+return int 
+is 
+begin 
+ return a+b 
+end sum_values ;
+/
+
+create or replace function emp_name (dno int)
+return varchar
+is 
+ v_name varchar(20);
+ v_deptno number;
+ cursor c1 is select ename ,deptno from emp ;
+begin 
+ open c1 ;
+   loop
+    fetch c1 into v_name,v_deptno  ;
+    exit when c1%notfound ;
+    if v_deptno=dno then 
+      v_name;
+    end if;
+   end loop;
+ close c1 ;
+ return 'name : '|| v_name
+end;
+/
 
 ASSIGNMENTS : 
 1.Write a PL/SQL stored function named CHECK_EVEN_ODD that accepts a number as an input parameter and returns a message indicating whether the number is EVEN or ODD
