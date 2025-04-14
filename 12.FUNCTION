@@ -105,8 +105,10 @@ good morning
 
 
 select greeting()||  ' '||ename
-from emp
+from emp ;
 
+
+1.Write a function in PL/SQL that accepts a name as input and returns a greeting message in the format "good morning: <name>".
 
 create or replace function greeting(name varchar)
 return varchar
@@ -137,6 +139,7 @@ begin
 end ;
 /
 
+3.What will be the output of the following PL/SQL block, assuming the function sum_values is already created as shown below?
 
 create or replace function sum_values(a int,b int)
 return int 
@@ -146,23 +149,26 @@ begin
 end sum_values ;
 /
 
+4. Write a PL/SQL function that takes a department number as input, iterates through employees using a cursor, and returns the name of an employee belonging to the given department.
+
 create or replace function emp_name (dno int)
 return varchar
 is 
  v_name varchar(20);
  v_deptno number;
+ v_result varchar(200) := '' ;
  cursor c1 is select ename ,deptno from emp ;
 begin 
  open c1 ;
    loop
     fetch c1 into v_name,v_deptno  ;
     exit when c1%notfound ;
-    if v_deptno=dno then 
-      v_name;
-    end if;
+      if v_deptno=dno the 
+        v_result := v_result || v_name ||', ' ;
+      end if ;
    end loop;
  close c1 ;
- return 'name : '|| v_name
+ return v_result ;
 end;
 /
 
