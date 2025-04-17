@@ -127,11 +127,42 @@ begin
 end ;
 /
 
+THERE ARE THREEE TYPES OF EXECUTION METHOS SUPPORTED BY PARAMETERS 
+   I) POSITION NOTATIONS 
+  II) NAMED NOTATIONS 
+ III) MIXED NOTATIONS 
+
+     I) POSITION NOTATIONS 
+*****************************
+
+EX: SQL > EXEC DEPT_INSERT(1,'HR','BANGALORE');
+
+     II) NAMED NOTATIONS 
+****************************
+
+      BY USING THE PARAMETR WE CAN PASS THE VALUES ALONG WITH THE (=>) SYMBOL
+
+EX: SQL > EXEC DEPT_INSERT(P_DNAME => 'HR',P_LOC => 'BANGALORE',P_DEPTNO=>2);
+
+    III) MIXED NOTATIONS 
+******************************
+
+ 	IT IS THE COMBINATION OF POSITIONAL AND NAMED NOTATION 
+
+     NOTES : AFTER THE POSITIONAL THEIR CAN BE ALL NAMED NOTATION BUT AFTER THE NAME CANNOT BE POSITIONAL NOTATION
+
+ EX: SQL > EXEC DEPT_INSERT(3,P_DNAME => 'HR',P_LOC => 'BANGALORE',);
+
+**************************************************************************************************************************
+
+
 5.WRITE A PLSQL STORE PROCEDURE to update salary of all
    if the job is manager 5% hike 
    or the job is analyst 3% hike 
    else 1% .
 6.WRITE A PLSQL STORE PROCEDURE to delete the emp table record based on empno .
+
+
 
 
 
