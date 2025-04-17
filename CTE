@@ -1,28 +1,41 @@
-Absolutely! Here are **10 SQL query questions** using `WITH` (CTE) based on the **EMP** and **DEPT** tables:
+Common Table Expression (CTE)
+*****************************
 
----
+--> It is a temporary result set that is defined and used within the execution scope of a SELECT, INSERT, UPDATE, or DELETE statement. 
+--> CTEs are defined using the WITH clause and can be referenced multiple times within the main SQL query. 
+--> This makes CTEs a great alternative to subqueries.
 
-### 🔟 SQL CTE Query Questions
 
-1. **Find all employees who earn more than 2000 using a CTE.**
+Syntax
 
-2. **Using a CTE, get the average salary for each department and join it with the DEPT table.**
 
-3. **Write a CTE to display employees along with their manager names.**
+WITH cte_name AS (
+    SELECT query
+)
+SELECT *
+FROM cte_name;
 
-4. **Use a CTE to list the top 3 highest paid employees using `DENSE_RANK()`.**
 
-5. **Create a CTE that shows the maximum salary in each department and join it with department names.**
 
-6. **Find all employees who do not have a manager (MGR is NULL) using a CTE.**
+1. Find all employees who earn more than 2000 using a CTE.
 
-7. **Using a CTE, list employees who earn more than their manager.**
+2. Using a CTE, get the average salary for each department and join it with the DEPT table.
 
-8. **Write a CTE to count the number of employees in each department and display department name along with count.**
+3. Write a CTE to display employees along with their manager names.
 
-9. **Find employees who work in departments located in 'DALLAS' using a CTE.**
+4. Use a CTE to list the top 3 highest paid employees using `DENSE_RANK()`.
 
-10. **Using nested CTEs, find the department with the highest total salary paid to employees.**
+5. Create a CTE that shows the maximum salary in each department and join it with department names.
+
+6. Find all employees who do not have a manager (MGR is NULL) using a CTE.
+
+7. Using a CTE, list employees who earn more than their manager.
+
+8. Write a CTE to count the number of employees in each department and display department name along with count.
+
+9. Find employees who work in departments located in 'DALLAS' using a CTE.
+
+10. Using nested CTEs, find the department name with the highest total salary paid to employees.
 
 ---
 
