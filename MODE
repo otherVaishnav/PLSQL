@@ -1,8 +1,24 @@
 
 I) IN MODE 
+	 Used to pass a value into a procedure or function by defaultly it is in parameter.
+ SYNTAX:
+ 	PARAMATERNAME IN DATATYPE 
+
+example :
+**********
+
+CREATE OR REPLACE PROCEDURE show_square(n IN NUMBER) 
+IS
+  result NUMBER;
+BEGIN
+  result := n * n;
+  DBMS_OUTPUT.PUT_LINE('Square is: ' || result);
+END;
+/
+
 
 II) OUT MODE 
-	THIS MODE IS USED TO RETURN VALUES FROM PROCEDURE BODY 
+	Used to return a value from a procedure
 	OUT MODE INTERNALLY BEHAVES LIKE A UNINITIALIZED VARIBLE IN PROCEDURE BODY 
  SYNTAX:
  	PARAMATERNAME OUT DATATYPE 
