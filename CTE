@@ -15,13 +15,48 @@ WITH cte_name AS (
 SELECT *
 FROM cte_name;
 
+example:
+************
+
+waqtd name and salary of the employees who is earning more then average salary .
+
+WITH avg_sal AS (
+    SELECT AVG(sal) AS avg_salary
+    FROM emp
+)
+SELECT e.ename, e.sal
+FROM emp e, avg_sal a
+WHERE e.sal > a.avg_salary;
+
 
 
 1. Find all employees who earn more than 2000 using a CTE.
 
+with high_salary as (
+                select *
+                from emp
+                where sal > 2000 )
+select ename , sal
+from high_salary ;
+
 2. Using a CTE, get the average salary for each department and join it with the DEPT table.
 
+with avg_sal as (
+select avg(sal) avg_salary ,deptno 
+from emp
+group by deptno ) 
+select dname , a.avg_salary
+from dept d ,avg_sal a 
+where d.deptno =a.deptno ;
+
 3. Write a CTE to display employees along with their manager names.
+
+with manager as (
+select empno ,ename 
+from emp )
+select e.ename ,m.ename 
+from emp e ,manager m
+where e.mgr=m.empno ;
 
 4. Use a CTE to list the top 3 highest paid employees using `DENSE_RANK()`.
 
