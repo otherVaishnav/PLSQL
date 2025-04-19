@@ -6,8 +6,7 @@ Common Table Expression (CTE)
 --> This makes CTEs a great alternative to subqueries.
 
 
-Syntax
-
+Syntax:
 
 WITH cte_name AS (
     SELECT query
