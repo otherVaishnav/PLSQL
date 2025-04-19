@@ -60,6 +60,15 @@ where e.mgr=m.empno ;
 
 4. Use a CTE to list the top 3 highest paid employees using `DENSE_RANK()`.
 
+WITH TOP_SALARY_PAID AS ( 
+                        SELECT DENSE_RANK() OVER (ORDER BY SAL DESC) R ,EMPNO
+                        FROM EMP )
+                       SELECT E1.ENAME, E1.SAL
+                       FROM EMP E1 , TOP_SALARY_PAID T
+                       WHERE E1.EMPNO =T.EMPNO AND T.R<= 3 
+                       ORDER BY SAL DESC;
+
+
 5. Create a CTE that shows the maximum salary in each department and join it with department names.
 
 6. Find all employees who do not have a manager (MGR is NULL) using a CTE.
@@ -72,6 +81,4 @@ where e.mgr=m.empno ;
 
 10. Using nested CTEs, find the department name with the highest total salary paid to employees.
 
----
 
-Let me know if you'd like the answers or practice data too!
