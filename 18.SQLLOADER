@@ -1,4 +1,10 @@
 SQLLOADER :
+***********
+
+Oracle utility to load data from external files into Oracle database tables.
+Ideal for bulk data imports, data migration
+Works with flat files like .csv, .txt
+
 
 SETP 1: 
 *********
