@@ -73,3 +73,17 @@ open the terminal or command prompt
 	
 	sqlldr userid=user_name/password   --- give enter
         control = path of control file
+
+*************************************************************************
+TASK :
+
+   LOAD ALL THE DATA FROM people.csv file into sql database 
+notes :
+   people.csv file is atteched in plsql rep checkout
+
+--> craete the table name is customers
+
+--> column names are 
+    userid ,first_name ,last_name,gender,email
+
+
