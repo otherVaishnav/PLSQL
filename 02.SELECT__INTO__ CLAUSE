@@ -95,13 +95,15 @@ ASSIGNMETS :
 
 1. Write a PL/SQL block to fetch the `ENAME`, `JOB`, and `SAL` for the employee with `EMPNO = 7839`.
 
-2. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `DEPTNO` for the employee whose `SAL` is greater than 2000.
+2. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `DEPTNO` for the employee whose `SAL` is greater than 2000 
+   but the desigination ends with 'MAN' and the working in deptno 10.
 
 3. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `HIREDATE` for the employee with `EMPNO = 7782`.
 
 4. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `COMM` for the employee with the highest commission.
 
-5. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'SALESMAN'.
+5. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'SALESMAN' 
+   but the employee name ends with 'D'.
 
 6. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `SAL` for the employee with the second-highest salary.
 
@@ -111,8 +113,7 @@ ASSIGNMETS :
 
 9. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `MGR` for the employee with `EMPNO = 7566`.
 
-10. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'MANAGER'.
-
-These questions focus on retrieving and displaying specific columns from the `emp` table.
+10. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'MANAGER'
+    but the hired on month of april.
 
 
