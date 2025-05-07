@@ -53,3 +53,18 @@ BEGIN
 END ;
 /
 
+
+Assignments :
+
+1. Write a PL/SQL program to display the name and salary of an employee when the empno is provided.
+2. Write a PL/SQL program to display the name, job, and hiredate of an employee using `%ROWTYPE`, based on empno.
+3. Write a PL/SQL program to increase the salary by 10% for a given empno and display the updated salary.
+4. Write a PL/SQL block to display the department number and job title of an employee based on empno.
+5. Write a PL/SQL program to display all the details of an employee using `%ROWTYPE` when empno is entered.
+6. Write a PL/SQL program to check if an employee earns more than 2000 and name end with 'KE' , and display name and salary.
+7. Write a PL/SQL block to display the employee’s name, commission,  if commission is 1400.
+8.Write a PL/SQL program to calculate and display the annual salary (salary × 12) of an employee given their empno.
+9.Write a PL/SQL block to display the name and manager number (MGR) of an employee when empno is given.
+10.Write a PL/SQL program to compare the salaries of two employees (based on empno) and display who earns more.
+
+
