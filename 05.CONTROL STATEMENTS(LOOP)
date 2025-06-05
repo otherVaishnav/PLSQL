@@ -18,8 +18,8 @@ To exit from infite loop we are using 2 methods
 
 1) EXIT WHEN TRUECONDITION;
 2) IF CONDITION THEN
-   EXIT ;
-   END ;
+       EXIT;
+       END IF;
 
 
 
