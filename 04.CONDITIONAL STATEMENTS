@@ -63,3 +63,86 @@ SYNTAX:
 	/
 
 
+ 🔹 1. Simple IF – 5 Questions
+
+These only require a single `IF` without `ELSE`.
+
+1. Declare a variable `v_temp := 40`. If temperature is over 35, print `'Too hot'`.
+2. Check if a number `v_num := -10` is negative. If so, print `'Negative'`.
+3. If the string `v_city := 'Delhi'`, print `'Capital city'`.
+4. If a student's `v_marks := 95`, and it’s over 90, print `'Top scorer'`.
+5. Check if `v_count := 0`. If it is zero, print `'No items found'`.
+
+---
+
+🔹 2. IF...ELSE – 5 Questions
+
+These require handling both the true and false outcomes.
+
+1. If `v_age := 21`, print `'Adult'`; else print `'Minor'`.
+2. If `v_salary := 4000` is over 5000, print `'High salary'`, else `'Average salary'`.
+3. If `v_is_member := 'Y'`, print `'Access granted'`, else `'Access denied'`.
+4. If `v_quantity := 0`, print `'Out of stock'`; else `'Available'`.
+5. If `v_score := 55` is passing (>=50), print `'Passed'`; else `'Failed'`.
+
+---
+
+## 🔹 3. IF...ELSIF...ELSE – 5 Questions
+
+These test multiple condition branches.
+
+1. Given `v_grade := 85`, print:
+
+   * `>= 90` → `'A'`
+   * `>= 80` → `'B'`
+   * `>= 70` → `'C'`
+   * Else → `'F'`
+
+2. If `v_day := 1`, print `'Sunday'`; `2` → `'Monday'`; else → `'Other day'`.
+
+3. Check speed of the user  `v_speed := 120`:
+
+   * `> 100` → `'Over Speed'`
+   * `>= 60` → `'Normal Speed'`
+   * Else → `'Slow Speed'`
+
+4. For `v_temp := 10`:
+
+   * `< 10` → `'Very Cold'`
+   * `10–20` → `'Cold'`
+   * `20–30` → `'Warm'`
+   * Else → `'Hot'`
+
+5. For `v_rating := 3`:
+
+   * `5` → `'Excellent'`
+   * `4` → `'Good'`
+   * `3` → `'Average'`
+   * Else → `'Poor'`
+
+---
+
+## 🔹 4. Boolean IF – 5 Questions
+
+Use Boolean variables (`TRUE`/`FALSE`).
+
+1. If `v_is_valid := TRUE`, print `'Valid data'`; else `'Invalid data'`.
+2. If `v_logged_in := FALSE`, print `'Login required'`.
+3. Set `v_has_permission := TRUE`; if true, print `'Permission granted'`.
+4. If `v_is_admin := FALSE`, print `'Access denied'`; else `'Welcome, admin'`.
+5. Set `v_is_complete := TRUE`; if complete, print `'Task finished'`.
+
+---
+
+## 🔹 5. Nested IF – 5 Questions
+
+Conditions inside other conditions.
+
+1. If `v_age > 18`, and `v_has_id := TRUE`, print `'Eligible to vote'`; else `'ID required'`.
+2. If `v_salary > 5000`, and `v_experience > 5`, print `'Eligible for promotion'`; else `'Not enough experience'`.
+3. If `v_user = 'admin'`, and `v_password = 'admin123'`, print `'Login successful'`; else `'Wrong password'`.
+4. If `v_temp > 30`, and `v_humidity > 70`, print `'High heat index'`; else `'Normal heat'`.
+5. If `v_marks > 60`, and `v_attendance >= 75`, print `'Eligible for exam'`; else `'Low attendance'`.
+
+
+
