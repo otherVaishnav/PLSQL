@@ -1,0 +1,19 @@
+CONNECT BY and START WITH
+
+These clauses are used to query hierarchical or tree-structured data.
+when a table has a self-referencing relationship like EMP (employee → manager).
+
+Syntax:
+
+  SELECT column1, column2, ...,level
+  FROM table_name
+  START WITH condition_to_identify_root
+  CONNECT BY  PRIOR child_column = parent_column;
+
+START WITH: Specifies the root(s) of the hierarchy (e.g., top-level manager).
+
+CONNECT BY: Defines the relationship between parent and child rows.
+
+PRIOR: Indicates which side of the relationship is parent or child.
+The LEVEL pseudocolumn is used with CONNECT BY to indicate the depth of a row in a hierarchical query.
+
