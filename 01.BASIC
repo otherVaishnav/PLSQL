@@ -1,31 +1,42 @@
 			plsql
 
-	Pl/sql  is a procedural language extension for sql.
-	A procedural programming language is a type of programming language that follows a step-by-step, sequential approach to solve problems
+	PL/SQL is a procedural extension of SQL, developed by Oracle.
+	A procedural language solves problems step by step, using conditions, loops, and variables.
 	It is the combination of procedural ,data manuplation language.
-	PL/SQL = Procedural Language (like logic, loops) + SQL (DML)
+	PL/SQL is a mix of:
+	  Procedural Language (like IF, FOR, WHILE)
+	  SQL (Data Manipulation) (like SELECT, INSERT, UPDATE, DELETE)
 	So you can control the flow of a program and also manipulate data in one place.
-	Oracle 6.0 introduced pl/sql :
+	PL/SQL was introduced in Oracle version 6.0, around 1991
 
-TO VIEW VERSION OF  PL/SQL.
+✅ To View PL/SQL (Oracle) Version
 
 SELECT * 
 FROM V$VERSION ;
 
 BASICALLY PL/SQL IS A BLOCK STRUCTURED:
 
-DECLARE [OPTIONAL]
- VARIABLE DECLARATION ,
- CURSORS,
- EXCEPTIONS 
-BEGIN [ MANDATORY ]
- DML ,TCL 
- SELECT ____ INTO __ 
- CONDITIONAL ,
- CONTROL STATEMENTS ;
-EXCEPTION [ OPTIONAL ]
- HANDLING EXCEPTIONS
-END ; [ MANDATORY ]
+-- 1) DECLARE Section (optional)
+DECLARE
+  -- • Variables
+  -- • Cursors
+  -- • Exception declarations
+
+-- 2) BEGIN Section (mandatory)
+BEGIN
+  -- • DML (INSERT, UPDATE, DELETE)
+  -- • TCL (COMMIT, ROLLBACK)
+  -- • SELECT … INTO …  (fetch data into variables)
+  -- • Procedural logic (IF…THEN, LOOP, etc.)
+
+-- 3) EXCEPTION Section (optional)
+EXCEPTION
+  -- • Exception handlers
+  WHEN erroName THEN
+    -- handle the error
+
+-- 4) END (mandatory)
+END;
 /
 
 
