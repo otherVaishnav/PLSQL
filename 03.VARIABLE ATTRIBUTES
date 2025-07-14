@@ -1,37 +1,55 @@
 VARIABLE ATTRIBUTES 
 ----------------------
-  
-	Variable attributes are used in place of datatypes in variable declaration or procedure parameter declaration in pl/sql block.
-	There are two types of variable attributes supported by pl/sql .
-1)COLUMN LEVEL ATTRIBUTES
-2)ROW LEVEL ATTRIBUTES 
+ 🔸 Variable attributes are used instead of explicitly specifying a data type when declaring variables or parameters
+ 🔸 They help in automatically matching the datatype of a variable with a table column
+ 🔸 This makes the code more flexible and maintainable
+ 🔸 Types of Variable Attributes:
+      PL/SQL supports two types of variable attributes:
+     🔸  %TYPE
+     🔸 %ROWTYPE
 
-COLUMN LEVEL ATTRIBUTES
-	In this method we are defining attributes for individual columns 
-	This attribute is represented using %type
+1️⃣ %TYPE Attribute
 
-SYNTAX:
+🔸 Column-level attributes allow us to declare a variable with the same data type as a column in a database table.
+🔸 This is useful when we want to ensure that the variable matches the column's datatype exactly.
+🔸 It is done using the %TYPE attribute.
+
+✅ Key Points:
+   🔸  %TYPE is used to copy the datatype of a specific column.
+   🔸  Helps avoid datatype mismatch errors.
+
+📌 Syntax:
+
    	Variable_Name Table_Name.Column_Name%TYPE;
 
 EXAMPLE:
+
+ WRITE A PL/SQL PROGRAM TO DISPLAY THE NAME AND SALRY OF THE EMPLOYEES IF THE EMPNO IS 7369.
+
 DECLARE 
    V_NAME EMP.ENAME%TYPE ;
    V_SAL EMP.SAL%TYPE ;
 BEGIN 
     SELECT ENAME ,SAL INTO V_NAME ,V_SAL 
     FROM EMP 
-    WHERE EMPNO=&NO ;
+    WHERE EMPNO= 7369 ;
        DBMS_OUTPUT.PUT_LINE(V_NAME || ' ' || V_SAL);
 END ;
 /
- ROW LEVEL ATTRIBUTES '
------------------------
-	In this method a single variable represents all different datatypes in entire row in a table that’s
-	Why this variable is also called as record type variable in this variable is represent using %rowtype.
- SYNTAX:
-   Variable_Name Table_Name%Rowtype;
+
+2️⃣  %ROWTYPE Attribute
+
+ 🔸 A row‑level attribute declares a record variable that can hold an entire row fetched from a table
+ 🔸 It is specified using the %ROWTYPE attribute.
+
+📌 Syntax:
+
+    variable_name table_name%ROWTYPE;
+
 EXAMPLE :
+
 Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
+
 DECLARE 
     I EMP%ROWTYPE ;
 BEGIN 
@@ -41,6 +59,7 @@ BEGIN
      DBMS_OUTPUT.PUT_LINE(I.ENAME || ' ' || I.JOB ||' '  || I.SAL);
 END ;
 /
+
 Write a pl/sql programm to display name ,job and salary of the employe get the values from user as empno.
 EXAMPLE :
 DECLARE 
@@ -56,15 +75,12 @@ END ;
 
 Assignments :
 
-1. Write a PL/SQL program to display the name and salary of an employee when the empno is provided.
-2. Write a PL/SQL program to display the name, job, and hiredate of an employee using `%ROWTYPE`, based on empno.
-3. Write a PL/SQL program to increase the salary by 10% for a given empno and display the updated salary.
-4. Write a PL/SQL block to display the department number and job title of an employee based on empno.
-5. Write a PL/SQL program to display all the details of an employee using `%ROWTYPE` when empno is entered.
-6. Write a PL/SQL program to check if an employee earns more than 2000 and name end with 'KE' , and display name and salary.
-7. Write a PL/SQL block to display the employee’s name, commission,  if commission is 1400.
-8.Write a PL/SQL program to calculate and display the annual salary (salary × 12) of an employee given their empno.
-9.Write a PL/SQL block to display the name and manager number (MGR) of an employee when empno is given.
-10.Write a PL/SQL program to compare the salaries of two employees (based on empno) and display who earns more.
-
-
+1. Write a PL/SQL anonymous block that, given an EMPNO substitution variable, declares %TYPE variables and displays the employee’s name and salary.
+2. Develop a PL/SQL block which, for a provided EMPNO, declares a EMP%ROWTYPE record and outputs the employee’s name, job title, and hire date.
+3. Create a PL/SQL program that accepts an EMPNO, retrieves the employee’s salary into a %TYPE variable, increases it by 10%, and then displays the updated salary.
+4. Write a PL/SQL anonymous block to fetch—and display—the department number and job title of the employee identified by a given EMPNO, using %TYPE variables.
+5. Implement a PL/SQL block that prompts for an EMPNO, declares an EMP%ROWTYPE record, retrieves all columns for that employee, and displays the complete row.
+6. Develop a PL/SQL program that, for a specified EMPNO, checks whether the employee earns more than 2000 and their name ends with ‘KE’; if both conditions are true, display their name and salary.
+7. Write a PL/SQL block that, given an EMPNO, declares %TYPE variables to retrieve and display the employee’s name and commission only if their commission equals 1400.
+8. Create a PL/SQL anonymous block that prompts for an EMPNO, retrieves the monthly salary into a %TYPE variable, calculates the annual salary , and displays the result .
+9. Construct a PL/SQL block that, for a provided EMPNO, declares %TYPE variables to fetch and print the employee’s name and manager ID (MGR).
