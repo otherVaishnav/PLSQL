@@ -35,15 +35,26 @@ There are two types of blocks supported by pl/sql :
 
 ANNOYMOUS BLOCK:
 
-	These block does not have a name and also not stored in database .
-	We are not supposed to call these blocks in another blocks or in client application .
-EXAMPLE :
-	DECLARE 
-	--
- 	BEGIN 
-	--
-	--
-	END ;
+✅ Anonymous Block in PL/SQL :
+
+❌ Anonymous blocks do not have a name.
+
+🗑️ They are not stored in the database (used only once, temporary).
+
+🚫 You cannot call them from other blocks or applications.
+
+✅ Used for testing, small tasks, or quick scripts.
+
+
+SYNTAX  :
+
+	DECLARE
+	  -- Variable declarations (optional)
+	BEGIN
+	  -- Your PL/SQL logic here
+	END;
+	/
+
 
  NAMED BLOCK:
 
@@ -59,27 +70,34 @@ EXAMPLE :
 
 📚 Types of Named Blocks:
 
-| Type             | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| Procedure 	   | Performs a task (may or may not return value)        |
-| Function	   | Must return a value                                  |
-| Trigger          | Runs **automatically** on insert/update/delete       |
-| Package          | Collection of related procedures/functions/variables |
-| Package Body     | Contains the actual code for the package items       |
+	| Type             | Description                                          |
+	| ---------------- | ---------------------------------------------------- |
+	| Procedure 	   | Performs a task (may or may not return value)        |
+	| Function	   | Must return a value                                  |
+	| Trigger          | Runs **automatically** on insert/update/delete       |
+	| Package          | Collection of related procedures/functions/variables |
+	| Package Body     | Contains the actual code for the package items       |
 
 
 
 VARIABLE 
-	Variable is used to store a single value into memory location
+
+📦 A variable is a named storage used to hold a single value in memory.
+
+🧠 It allows you to store, change, and use values during program execution.
+
+🧮 The value stored in a variable can be number, text, date, etc.
+
 
 SYNTAX: 
-		VARIABLE_NAME DATATYPE(SIZE);
+	VARIABLE_NAME DATATYPE(SIZE);
 
-          EXAMPLE:
+EXAMPLE:
 
-		V_NAME VARCHAR(20) ;
+	V_NAME VARCHAR(20) ;
 
  Generally we are declaring variable in declare section of pl/sql blocks .
+
      EXAMPLES:
 
 	DECLARE 
@@ -88,14 +106,15 @@ SYNTAX:
 	     V_SAL NUMBER(7);
 
 
-HOW TO STORE THE VALUES INTO A VARIABLE.
+HOW TO STORE THE VALUES INTO PL/SQL VARIABLE.
 
- Using assignment operator ( :=) we used to store the values into a variables
+	We use the assignment operator := to assign or store values into PL/SQL variables.
 
        SYNTAX:
 		VARIABLE_NAME := VALUE ;
      EXAMPLE:
 		V_AGE := 60 ;
+
 TO DISPLAY THE MESSAGES :
 
 	DBMS_OUTPUT.PUT_LINE( 'MESSAGES');
@@ -130,3 +149,12 @@ WELCOME TO PLSQL WORLD :ARCHANA
   	   DBMS_OUTPUT.PUT_LINE( 'WELCOME TO PLSQL WORLD :'||V_NAME);
 	END ;
 	/
+
+TASK : 
+ 1) Write a PL/SQL block that declares a variable v_city, stores the value 'Chennai' into it, and displays it.
+ 2) Declare two variables a and b, assign values 10 and 20, calculate the sum and display the result.
+ 3) Write an anonymous block that declares a variable for your name and prints a welcome message like:
+    EXAMPLE : 
+        OUTPUT :  Welcome, Dharma!
+ 4) Create a PL/SQL block that uses := to assign the value 'PL/SQL is powerful' to a variable and prints it.
+ 5) Write a PL/SQL block with a nested block inside. Declare a variable in the outer block (v_outer) and another in the inner block (v_inner). Print both values inside the inner block.
