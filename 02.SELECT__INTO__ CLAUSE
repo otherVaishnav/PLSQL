@@ -1,14 +1,16 @@
 SELECT _____ INTO _____ CLAUSE 
-	Normal sql statement is used to fetch the data from table and we are storing the values into the pl/sql variable .
-	Select ___ into ___ clause always returns single values or records at a time.
+
+ *) The SELECT ... INTO ... clause is used in PL/SQL to fetch data from a table and store it into PL/SQL variables.
+ *) This is different from normal SQL, which just retrieves data.
+ *) In PL/SQL, we use this clause inside a block to assign database values directly to variables.
+
 
      SYNTAX: 
-	SELECT COL1 ,COL2 ….
- 	INTO VAR1 ,VAR2… 
-	FROM TABLE_NAME 
-	WHERE CONDITION ;
+	SELECT column1, column2, ...
+	INTO variable1, variable2, ...
+	FROM table_name
+	WHERE condition;
 
-This clause is used in execuatable section of plsql program .
  
 EXAMPLE :
           WRITE A PL/SQL PROGRAM DISPLAY NAME AND SALARY OF THE EMPLOYEES AND GET THE EMPNO FORM THE USER.
@@ -26,10 +28,19 @@ END;
 	ENTER VALUE FOR EMPNO: 7902
 	MY NAME IS : FORD AND MY SALARY IS : 3000
 
-NOTES :
-	Whenever we are using not null ,constant clause in variable we must assign the values at the time of declaration only.
+Notes:
+  This clause must return exactly one row.
+  If no rows are returned → NO_DATA_FOUND exception.
+  If more than one row is returned → TOO_MANY_ROWS exception.
+
+
+NOTES on NOT NULL and CONSTANT in PL/SQL:
+✅ Rule:
+Whenever we use the NOT NULL or CONSTANT constraint in a PL/SQL variable declaration, we must assign a value at the time of declaration itself.
+If not, the compiler will throw an error.
 
 EXAMPLE:
+
 DECLARE 
    A NUMBER(10) NOT NULL :=60;
    B CONSTANT NUMBER (10):=50;
@@ -38,9 +49,12 @@ BEGIN
    DBMS_OUTPUT.PUT_LINE(B);
 END;
 /
+
 NOTES :
 We can also use default keyword in place a assignment operator , in declare  section of the pl/sql.
+
 EXAMPLE:
+
 DECLARE 
    A NUMBER(10) DEFAULT 60;
 BEGIN
@@ -49,7 +63,7 @@ END;
 /
 
 
-1)	WAQTD MAXIMUM SALARY OF THE EMPLOYEE 
+1) WAQTD MAXIMUM SALARY OF THE EMPLOYEE 
 DECLARE 
    V_MAX NUMBER(5) ;
 BEGIN 
@@ -58,7 +72,8 @@ BEGIN
       DBMS_OUTPUT.PUT_LINE(V_MAX);
  END ;
 / 
-2)	WAQTD THE GRATEST DIGIT AMONG THIS  NUMBER 20,30,10 
+
+2) WAQTD THE GRATEST DIGIT AMONG THIS  NUMBER 20,30,10 
   
 DECLARE 
     A NUMBER(2) ;
@@ -74,7 +89,7 @@ BEGIN
 END ;
 /
 
-3)	WAQTD THE SMALLEST DIGIT AMONG THIS  NUMBER 20,30,10 
+3) WAQTD THE SMALLEST DIGIT AMONG THIS  NUMBER 20,30,10 
 
 DECLARE 
     A NUMBER(2) ;
@@ -93,27 +108,32 @@ END ;
 
 ASSIGNMETS :
 
-1. Write a PL/SQL block to fetch the `ENAME`, `JOB`, and `SAL` for the employee with `EMPNO = 7839`.
+ 1) Write a PL/SQL block to retrieve the employee name, job title, and salary for the employee with EMPNO 7839.
 
-2. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `DEPTNO` for the employee whose `SAL` is greater than 2000 
-   but the desigination ends with 'MAN' and the working in deptno 10.
+ 2) Develop a PL/SQL block to fetch the employee number, name, and department number for the employee whose salary exceeds 2000, job designation contains 'MAN', and who belongs to department 10.
 
-3. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `HIREDATE` for the employee with `EMPNO = 7782`.
+ 3) Construct a PL/SQL block to obtain the employee number, name, and hire date for the employee with EMPNO 7782.
 
-4. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `COMM` for the employee with the highest commission.
+ 4) Write a PL/SQL block to identify the employee number, name, and commission of the employee receiving the highest commission.
 
-5. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'SALESMAN' 
-   but the employee name ends with 'D'.
+ 5) Create a PL/SQL block to retrieve the employee number, name, and job title for the employee whose job is 'SALESMAN' and whose name ends with the letter 'D'.
 
-6. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `SAL` for the employee with the second-highest salary.
+ 6) Develop a PL/SQL block to fetch the employee number, name, and salary of the employee earning the second-highest salary.
 
-7. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `DEPTNO` for the employee who was hired the earliest (`HIREDATE`).
+ 7) Write a PL/SQL block to retrieve the employee number, name, and department number for the employee with the earliest hire date in the organization.
 
-8. Write a PL/SQL block to retrieve the `EMPNO`, `ENAME`, and `SAL` for the employee with the highest salary in the department with `DEPTNO = 30`.
+ 8) Construct a PL/SQL block to obtain the employee number, name, and salary of the highest-paid employee in department 30.
 
-9. Write a PL/SQL block to fetch the `EMPNO`, `ENAME`, and `MGR` for the employee with `EMPNO = 7566`.
+ 9) Write a PL/SQL block to fetch the employee number, name, and manager ID for the employee with EMPNO 7566.
 
-10. Write a PL/SQL block to display the `EMPNO`, `ENAME`, and `JOB` for the employee whose `JOB` is 'MANAGER'
-    but the hired on month of april.
+ 10) Create a PL/SQL block to retrieve the employee number, name, and job title for the employee designated as 'MANAGER' and hired in the month of April.
 
+ 11) Write a PL/SQL block to fetch the employee number, name, and salary of the employee named 'KING'.
 
+ 12) Develop a PL/SQL block to retrieve the employee number, name, and job title for the employee who was most recently hired.
+
+ 13) Construct a PL/SQL block to obtain the employee number, name, and department number for the employee earning a salary of exactly 800.
+
+ 14) Write a PL/SQL block to fetch the employee number, name, and commission for the employee receiving a commission of 1400.
+
+ 15) Create a PL/SQL block to retrieve the employee number, name, and job title for the employee who does not report to any manager (i.e., MGR is NULL).
