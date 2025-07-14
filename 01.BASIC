@@ -1,7 +1,10 @@
 			plsql
 
 	Pl/sql  is a procedural language extension for sql.
+	A procedural programming language is a type of programming language that follows a step-by-step, sequential approach to solve problems
 	It is the combination of procedural ,data manuplation language.
+	PL/SQL = Procedural Language (like logic, loops) + SQL (DML)
+	So you can control the flow of a program and also manipulate data in one place.
 	Oracle 6.0 introduced pl/sql :
 
 TO VIEW VERSION OF  PL/SQL.
@@ -14,7 +17,7 @@ BASICALLY PL/SQL IS A BLOCK STRUCTURED:
 DECLARE [OPTIONAL]
  VARIABLE DECLARATION ,
  CURSORS,
- UNDEFINED EXCEPTIONS 
+ EXCEPTIONS 
 BEGIN [ MANDATORY ]
  DML ,TCL 
  SELECT ____ INTO __ 
@@ -43,14 +46,26 @@ EXAMPLE :
 	END ;
 
  NAMED BLOCK:
-	There blocks are having a name and also automatically stored in database.
-	These blocks used by all the types of programmers in all the application 
 
-	There are :
-    •  PROCEDURE 
-    •  FUNCTION 
-    •  TRIGGERS
-    •  PACKAGES ..ETC 
+🧱 Named blocks are PL/SQL code blocks that have a name (like a saved program).
+
+🗂️ They are stored in the Oracle database, so you don’t need to write them again and again.
+
+🔁 You can reuse them by calling their name anywhere in your application.
+
+👨‍💻 Used by developers to keep code organized, clean, and modular (broken into parts).
+
+✅ Very useful in big applications where the same logic is needed in many places.
+
+📚 Types of Named Blocks:
+
+| Type             | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| Procedure 	   | Performs a task (may or may not return value)        |
+| Function	   | Must return a value                                  |
+| Trigger          | Runs **automatically** on insert/update/delete       |
+| Package          | Collection of related procedures/functions/variables |
+| Package Body     | Contains the actual code for the package items       |
 
 
 
