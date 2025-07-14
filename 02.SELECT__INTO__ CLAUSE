@@ -13,7 +13,7 @@ SELECT _____ INTO _____ CLAUSE
 
  
 EXAMPLE :
-          WRITE A PL/SQL PROGRAM DISPLAY NAME AND SALARY OF THE EMPLOYEES AND GET THE EMPNO FORM THE USER.
+  1) WRITE A PL/SQL PROGRAM DISPLAY NAME AND SALARY OF THE EMPLOYEES AND GET THE EMPNO FORM THE USER.
 DECLARE 
      V_NAME VARCHAR(20);
      V_SAL NUMBER ;
@@ -28,6 +28,46 @@ END;
 	ENTER VALUE FOR EMPNO: 7902
 	MY NAME IS : FORD AND MY SALARY IS : 3000
 
+  2)  WRITE A PL/SQL PROGRAM DISPLAY NAME AND job OF THE EMPLOYEES  who is earning 1100 
+
+DECLARE 
+     V_NAME VARCHAR(20);
+     V_JOB VARCHAR(20) ;
+BEGIN 
+     SELECT ENAME ,JOB INTO V_NAME ,V_JOB
+     FROM EMP
+     WHERE SAL=1100 ;
+      DBMS_OUTPUT.PUT_LINE('MY NAME IS : '||V_NAME || ' AND MY JOB IS : ' ||V_JOB);
+END;
+/
+
+  3)  WRITE A PL/SQL PROGRAM DISPLAY NAME AND job OF THE EMPLOYEES  who is earning 1000 
+
+DECLARE 
+     V_NAME VARCHAR(20);
+     V_JOB VARCHAR(20) ;
+BEGIN 
+     SELECT ENAME ,JOB INTO V_NAME ,V_JOB
+     FROM EMP
+     WHERE SAL=1000 ;
+      DBMS_OUTPUT.PUT_LINE('MY NAME IS : '||V_NAME || ' AND MY JOB IS : ' ||V_JOB);
+END;
+/
+
+  4)  WRITE A PL/SQL PROGRAM DISPLAY NAME AND job OF THE EMPLOYEES  who is earning 3000 
+
+DECLARE 
+     V_NAME VARCHAR(20);
+     V_JOB VARCHAR(20) ;
+BEGIN 
+     SELECT ENAME ,JOB INTO V_NAME ,V_JOB
+     FROM EMP
+     WHERE SAL=3000 ;
+      DBMS_OUTPUT.PUT_LINE('MY NAME IS : '||V_NAME || ' AND MY JOB IS : ' ||V_JOB);
+END;
+/
+
+
 Notes:
   This clause must return exactly one row.
   If no rows are returned → NO_DATA_FOUND exception.
@@ -35,9 +75,10 @@ Notes:
 
 
 NOTES on NOT NULL and CONSTANT in PL/SQL:
+
 ✅ Rule:
-Whenever we use the NOT NULL or CONSTANT constraint in a PL/SQL variable declaration, we must assign a value at the time of declaration itself.
-If not, the compiler will throw an error.
+	Whenever we use the NOT NULL or CONSTANT constraint in a PL/SQL variable declaration, we must assign a value at the time of declaration itself.
+	If not, the compiler will throw an error.
 
 EXAMPLE:
 
@@ -73,7 +114,30 @@ BEGIN
  END ;
 / 
 
-2) WAQTD THE GRATEST DIGIT AMONG THIS  NUMBER 20,30,10 
+GREATEST Keyword in Oracle SQL / PL/SQL
+
+	The GREATEST function is used to return the largest (greatest) value from a list of two or more expressions.
+
+✅ Syntax:
+
+	GREATEST(expr1, expr2, ..., exprN)
+
+SELECT GREATEST(100, 300, 50, 200) AS max_val FROM dual;
+
+SELECT GREATEST('Apple', 'Orange', 'Banana') AS result FROM dual;
+
+Notes:
+ It compares all the expressions and returns the one with the highest value.
+ Works with numbers, dates, characters, etc.
+ All expressions must be of compatible data types.
+
+⚠️ Important Notes:
+   If any argument is NULL, the result will be NULL (unless you handle it with NVL).
+   All expressions must be of same or compatible types.
+
+SELECT GREATEST(100, 300, 50, null) AS max_val FROM dual;
+
+ WAQTD THE GRATEST DIGIT AMONG THIS  NUMBER 20,30,10 
   
 DECLARE 
     A NUMBER(2) ;
@@ -89,7 +153,17 @@ BEGIN
 END ;
 /
 
-3) WAQTD THE SMALLEST DIGIT AMONG THIS  NUMBER 20,30,10 
+LEAST Keyword in Oracle SQL / PL/SQL:
+
+The LEAST function is used to return the smallest (least) value from a list of two or more expressions.
+
+✅ Syntax:
+
+	LEAST(expr1, expr2, ..., exprN)
+
+SELECT LEAST(100, 300, 50, 200) AS min_val FROM dual;
+
+ WAQTD THE SMALLEST DIGIT AMONG THIS  NUMBER 20,30,10 
 
 DECLARE 
     A NUMBER(2) ;
