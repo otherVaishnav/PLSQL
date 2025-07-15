@@ -1,34 +1,186 @@
-CONDITIONAL STATEMENTS (IF)
-1)	IF 
-2)	IF ELSE 
-3)	ELSIF 
+CONDITIONAL STATEMENTS (IF);
 
-IF CONDITION 
-	SYNTAX:
+Conditional Statements in PL/SQL are used to make decisions in the program based on true or false conditions.
+
+🔺 Types of IF Statements in PL/SQL:
+	🔸 IF 
+	🔸 IF ELSE 
+	🔸 ELSIF 
+
+
+
+🔺 IF Statement
+------------------
+	The IF statement is used to execute a block of code only when a condition is true.
+
+SYNTAX:
 	IF CONDITION THEN 
-	     STATEMENTS ;
+	   -- code to run
 	END IF ;
+Example: 
 
-Get the values from the user if the value is less then 10 then display it 'entered value is less than 10 
-  
- EXAMPLE
-DECLARE 
-   N NUMBER :=&NO ;
-BEGIN 
-   IF  N<10 THEN 
-      DBMS_OUTPUT.PUT_LINE( ' ENTERED LESS THEN : ' || N ) ;
-   END IF ;
-END ;
+✅ Write a PL/SQL block to check if a person is eligible to vote (age ≥ 18).
+
+DECLARE
+   v_age NUMBER := 20;
+BEGIN
+   IF v_age >= 18 THEN
+      DBMS_OUTPUT.PUT_LINE('Eligible to vote');
+   END IF;
+END;
 /
+
+✅ Write a PL/SQL block to display “High Salary” if salary is more than 40,000.
+
+DECLARE
+   v_salary NUMBER := 50000;
+BEGIN
+   IF v_salary > 40000 THEN
+      DBMS_OUTPUT.PUT_LINE('High Salary');
+   END IF;
+END;
+/
+
+✅ Write a PL/SQL program to print “Topper!” if marks is equal to 95.
+
+DECLARE
+   v_marks NUMBER := 95;
+BEGIN
+   IF v_marks = 95 THEN
+      DBMS_OUTPUT.PUT_LINE('Topper!');
+   END IF;
+END;
+/
+
+🔺 IF...ELSE Statement 
+------------------------
+ Executes one block of code if the condition is true, and another block if it is false.
   
-IF  ELSE CONDITION 
-  
-	SYNTAX:
+SYNTAX:
 	IF CONDITION THEN 
-	     STATEMENTS ;
+	  -- true block
 	ELSE 
-	        STATEMENTS ;
+	     -- false block
 	END IF ;
+
+✅ Check if login is successful. Print "Login Successful" if true, otherwise "Login Failed".
+
+DECLARE
+   v_login_status BOOLEAN := TRUE;
+BEGIN
+   IF v_login_status THEN
+      DBMS_OUTPUT.PUT_LINE('Login Successful');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Login Failed');
+   END IF;
+END;
+/
+
+✅ Write a PL/SQL block to check if temperature is greater than 30. If true, print "It is Hot", else "It is Cool".
+
+DECLARE
+   v_temperature NUMBER := 25;
+BEGIN
+   IF v_temperature > 30 THEN
+      DBMS_OUTPUT.PUT_LINE('It is Hot');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('It is Cool');
+   END IF;
+END;
+/
+
+✅  Write a PL/SQL program to check account balance. If balance > 0, print “Balance Available”; else, “Insufficient Balance”.
+
+DECLARE
+   v_balance NUMBER := 0;
+BEGIN
+   IF v_balance > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('Balance Available');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Insufficient Balance');
+   END IF;
+END;
+/
+
+🔺 IF...ELSIF...ELSE Statement
+------------------------------
+  Checks multiple conditions one by one. Executes the block for the first true condition. If none match, runs the ELSE block
+
+SYNTAX:
+	IF CONTITION1 THEN
+	     STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSIF CONDITION2 THEN 
+	    STATEMENTS ;
+	ELSE 
+	    STATEMENTS ;
+	END IF ;
+	/
+
+✅ Write a PL/SQL block to assign grade based on score:
+	A if ≥90
+	B if ≥75
+	C if ≥60
+	F otherwise
+
+DECLARE
+   v_score NUMBER := 72;
+BEGIN
+   IF v_score >= 90 THEN
+      DBMS_OUTPUT.PUT_LINE('Grade: A');
+   ELSIF v_score >= 75 THEN
+      DBMS_OUTPUT.PUT_LINE('Grade: B');
+   ELSIF v_score >= 60 THEN
+      DBMS_OUTPUT.PUT_LINE('Grade: C');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Grade: F');
+   END IF;
+END;
+/
+
+✅ Based on the day of the week, print:
+
+	“Start of the week” for Monday
+	“Weekend is coming” for Friday
+	“Holiday!” for Sunday
+	“Normal working day” for others
+
+DECLARE
+   v_day VARCHAR2(10) := 'Sunday';
+BEGIN
+   IF v_day = 'Monday' THEN
+      DBMS_OUTPUT.PUT_LINE('Start of the week');
+   ELSIF v_day = 'Friday' THEN
+      DBMS_OUTPUT.PUT_LINE('Weekend is coming');
+   ELSIF v_day = 'Sunday' THEN
+      DBMS_OUTPUT.PUT_LINE('Holiday!');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Normal working day');
+   END IF;
+END;
+/
+
+✅ Based on the hour of the day, print:
+	“Good Morning” for hour < 12
+	“Good Afternoon” for hour < 18
+	“Good Evening” for hour ≥ 18
+
+DECLARE
+   v_hour NUMBER := 14;
+BEGIN
+   IF v_hour < 12 THEN
+      DBMS_OUTPUT.PUT_LINE('Good Morning');
+   ELSIF v_hour < 18 THEN
+      DBMS_OUTPUT.PUT_LINE('Good Afternoon');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Good Evening');
+   END IF;
+END;
+/
+
 
 Get the values from the user if the value is greater then or equal 18 then ‘you are eligible to vote ‘  else  ‘you are not  eligible to vote ‘ display it 
 
@@ -45,104 +197,31 @@ BEGIN
     END ;
 /
 
-ELSIF  : 
---------------
- To check more number of condition we are using elsif;
-SYNTAX:
-	IF CONTITION1 THEN
-	     STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSIF CONDITION2 THEN 
-	    STATEMENTS ;
-	ELSE 
-	    STATEMENTS ;
-	END IF ;
-	/
 
+ASSIGNMENT :
 
- 🔹 1. Simple IF – 5 Questions
+🔸 Q1. Write a PL/SQL program to check whether a number is Even or Odd.
+🔸 Q2. Write a PL/SQL block to find the largest of three numbers.
+🔸 Q3. Write a program to check whether a number is Positive, Negative, or Zero.
+🔸 Q4. Write a PL/SQL block to check whether a given year is a Leap Year or not.
+🔸 Q5. Write a PL/SQL program to check whether a number is divisible by both 5 and 11.
+🔸 Q6. Write a PL/SQL block that prints the weekday name based on a number (1–7). If the number is not valid, print "Invalid Day".
+🔸 Q7. Write a PL/SQL program to check whether a given character is a Vowel or Consonant.
+🔸 Q8. Write a PL/SQL block to print the Grade of a student based on the marks:
+	A → 90 and above
+	B → 75 to 89
+	C → 60 to 74
+	D → 35 to 59
+	F → below 35
 
-These only require a single `IF` without `ELSE`.
+🔸 Q9. Write a PL/SQL program to check whether a given number is a multiple of 3 or 7 or both.
+✅ Example:
+	Input: 21 → Output: Multiple of both 3 and 7
+	Input: 9 → Output: Multiple of 3
+	Input: 14 → Output: Multiple of 7
+	Input: 8 → Output: Not a multiple of 3 or 7
 
-1. Declare a variable `v_temp := 40`. If temperature is over 35, print `'Too hot'`.
-2. Check if a number `v_num := -10` is negative. If so, print `'Negative'`.
-3. If the string `v_city := 'Delhi'`, print `'Capital city'`.
-4. If a student's `v_marks := 95`, and it’s over 90, print `'Top scorer'`.
-5. Check if `v_count := 0`. If it is zero, print `'No items found'`.
-
----
-
-🔹 2. IF...ELSE – 5 Questions
-
-These require handling both the true and false outcomes.
-
-1. If `v_age := 21`, print `'Adult'`; else print `'Minor'`.
-2. If `v_salary := 4000` is over 5000, print `'High salary'`, else `'Average salary'`.
-3. If `v_is_member := 'Y'`, print `'Access granted'`, else `'Access denied'`.
-4. If `v_quantity := 0`, print `'Out of stock'`; else `'Available'`.
-5. If `v_score := 55` is passing (>=50), print `'Passed'`; else `'Failed'`.
-
----
-
-## 🔹 3. IF...ELSIF...ELSE – 5 Questions
-
-These test multiple condition branches.
-
-1. Given `v_grade := 85`, print:
-
-   * `>= 90` → `'A'`
-   * `>= 80` → `'B'`
-   * `>= 70` → `'C'`
-   * Else → `'F'`
-
-2. If `v_day := 1`, print `'Sunday'`; `2` → `'Monday'`; else → `'Other day'`.
-
-3. Check speed of the user  `v_speed := 120`:
-
-   * `> 100` → `'Over Speed'`
-   * `>= 60` → `'Normal Speed'`
-   * Else → `'Slow Speed'`
-
-4. For `v_temp := 10`:
-
-   * `< 10` → `'Very Cold'`
-   * `10–20` → `'Cold'`
-   * `20–30` → `'Warm'`
-   * Else → `'Hot'`
-
-5. For `v_rating := 3`:
-
-   * `5` → `'Excellent'`
-   * `4` → `'Good'`
-   * `3` → `'Average'`
-   * Else → `'Poor'`
-
----
-
-## 🔹 4. Boolean IF – 5 Questions
-
-Use Boolean variables (`TRUE`/`FALSE`).
-
-1. If `v_is_valid := TRUE`, print `'Valid data'`; else `'Invalid data'`.
-2. If `v_logged_in := FALSE`, print `'Login required'`.
-3. Set `v_has_permission := TRUE`; if true, print `'Permission granted'`.
-4. If `v_is_admin := FALSE`, print `'Access denied'`; else `'Welcome, admin'`.
-5. Set `v_is_complete := TRUE`; if complete, print `'Task finished'`.
-
----
-
-## 🔹 5. Nested IF – 5 Questions
-
-Conditions inside other conditions.
-
-1. If `v_age > 18`, and `v_has_id := TRUE`, print `'Eligible to vote'`; else `'ID required'`.
-2. If `v_salary > 5000`, and `v_experience > 5`, print `'Eligible for promotion'`; else `'Not enough experience'`.
-3. If `v_user = 'admin'`, and `v_password = 'admin123'`, print `'Login successful'`; else `'Wrong password'`.
-4. If `v_temp > 30`, and `v_humidity > 70`, print `'High heat index'`; else `'Normal heat'`.
-5. If `v_marks > 60`, and `v_attendance >= 75`, print `'Eligible for exam'`; else `'Low attendance'`.
-
+🔸 Q10. Write a PL/SQL program to check if three given angles can form a valid triangle or not.
+	A triangle is valid if the sum of all three angles is exactly 180.
 
 
