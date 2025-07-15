@@ -1,74 +1,12 @@
 CURSOR 
-Cursor Is A Private Sql Memory Area Which Is Used To Process Multiple Records And Also This Is A Record By Record Process .
-THERE ARE TWO TYPES OF STATIC CURSOR SUPPORTS BY ORACLE
+Cursor Is Also a Private Sql Memory Area/Active memory set area/Context Memory area 
+Which Is Used To Process Multiple Records  
+Cursor will execute Record By Record / row by row Process .
+
+THERE ARE TWO TYPES OF CURSOR SUPPORTS BY ORACLE
 
 1)	IMPLICIT CURSOR
 2)	EXPLICIT CURSOR
-
-IMPLICIT CURSOR
------------------
-Sql Statements Returns A Single Record Is Called Implicit Cursors .
-Implicit Cursor Are Simple Pl/Sql Programs Which Contains Select Into Clause Or Dml Statements
-
-EXAMPLE:
-
-DECLARE
-    V_NAME VARCHAR(20) ;
-    V_SAL NUMBER(6);
-BEGIN
-    SELECT ENAME ,SAL INTO V_NAME ,V_SAL
-    FROM EMP
-   WHERE EMPNO =&NO ;
-       DBMS_OUTPUT.PUT_LINE( V_NAME || '  ' ||V_SAL);
-END ;
-/
-O/P :
-
-ENTER VALUE FOR NO: 7369
-OLD   7:   WHERE EMPNO =&NO ;
-NEW   7:   WHERE EMPNO =7369 ;
-SMITH  800
-
-
-
-IMPLICIT CURSOR ATTRIBUTES:
----------------------------
-
-Every IMPLICIT Cursor Having Following Four Attributes:
-
-1) %FOUND
-2) %NOTFOUND
-3) %ISOPEN
-4) %ROWCOUNT
-
-All These Cursor Attributes Using Along With Cursor Name Only.
-
-SYNTAX: 
-        SQL%Attribute_Name 
-
-1. %NOTFOUND
-    It Returns `TRUE` if the data is not exists in the  `FETCH` statments.
-
-   Syntax: 
-            SQL%NOTFOUND
-
-2. %FOUND  
-   It Returns `TRUE` if the data is exists in the  `FETCH` statments.
-
-   Syntax:
-            SQL%FOUND
-
-3. %ISOPEN  
-  It Returns `TRUE` if the cursor is currently open. Returns `FALSE` if the cursor is closed.
-
-   Syntax: 
-            SQL%ISOPEN
-
-4. %ROWCOUNT 
-   Returns the number of rows fetched so far from the cursor.
-
-   Syntax: 
-            SQL%ROWCOUNT
 
 
 
