@@ -1,6 +1,6 @@
 PARAMETRIZED CURSOR :
 
---> We Can Alse Pass Parameters To The Cursor Same Like A Subprograms In Parameters
+--> We Can Also Pass Parameters To The Cursor Same Like A Subprograms In Parameters
 --> These Type Of The Cursor Is Also Called As Parametrized Cursor
 
 SYNTAX:
@@ -9,19 +9,20 @@ CURSOR CURSOR_NAME (PARAMETER_NAME DATATYPE) IS SELECT *  FROM TABLE_NAME WHERE 
 
 SYNTAX:
 
-OPEN CURSOR_NAME (ACTUAL PARAMETERS);
+OPEN CURSOR_NAME (ACTUAL PARAMETERS value);
 
 EXAMPLE :
 *********
 DECLARE
      I EMP%ROWTYPE ;
-     CURSOR C1(P_DEPTNO NUMBER) IS SELECT ENAME,SAL 
+     CURSOR C1(P_DEPTNO NUMBER) IS SELECT * 
      FROM EMP WHERE DEPTNO=P_DEPTNO;
 BEGIN
    OPEN C1(10);
      DBMS_OUTPUT.PUT_LINE('EMPLOYEES ARE WORKING IN DEPTNO 10');
       LOOP
          FETCH C1 INTO I ;
+          EXIT WHEN C1%NOTFOUND ;
             DBMS_OUTPUT.PUT_LINE (I. ENAME|| ' ' ||I.SAL);
       END LOOP;
     CLOSE C1;
