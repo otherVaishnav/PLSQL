@@ -14,5 +14,5 @@ Subprogram in PL/SQL
 
 Types of Subprograms:
 
-   1) Procedure ---Performs a task. May or may not return a value.
-   2) Function ----Always returns a single value. Used in expressions.
+   1) Procedure ---It is used Perform a specific task and it May or may not return a value.
+   2) Function ----It is used Perform a specific task but it Always returns a single value.
