@@ -1,12 +1,13 @@
 Subprogram in PL/SQL
 
-A subprogram in PL/SQL is a named block of code that performs a specific task.
+A subprogram in PL/SQL is a named block 
+It is used to performs a specific task from user.
 It helps to organize and reuse code instead of repeating the same logic again and again.
 
 ✅ Key Points:
 Subprograms are named PL/SQL blocks.
 They are stored in the database and can be called whenever needed.
-Useful for modular programming (divide big programs into smaller tasks).
+Breaking the big programs into smaller programs .
 Can accept parameters and return output.
 
 Types of Subprograms:
